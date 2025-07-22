@@ -3,6 +3,7 @@ services:
     image: postgres
     volumes:
       - ./inid-db:/var/lib/postgresql/data
+    restart: always
     environment:
       POSTGRES_PASSWORD: "admin@123"
       POSTGRES_HOST_AUTH_METHOD: "trust"
@@ -18,6 +19,7 @@ services:
       PGADMIN_DEFAULT_PASSWORD: "admin@123"
     ports:
       - "9000:80"
+    restart: always
     depends_on:
       - postgres
     networks:
